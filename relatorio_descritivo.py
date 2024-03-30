@@ -54,7 +54,7 @@ outliers = df[(df['Idade'] < Q1 - 1.5 * IQR) | (df['Idade'] > Q3 + 1.5 * IQR)]
 
 # Imprimir resultados
 print("Número de outliers na coluna 'Idade':", len(outliers))
-print(outliers)
+#print(outliers)
 
 # Salvar os outliers em um arquivo CSV
 outliers.to_csv('outliers.csv', index=False)
