@@ -35,9 +35,9 @@ for index, row in df.iterrows():
         datas_sujas.append((index, row['Data_Inicio_Sintomas']))
 
 # Imprimir as datas sujas
-print("Datas sujas:")
-for index, data in datas_sujas:
-    print("Linha:", index, "- Data:", data)
+#print("Datas sujas:")
+#for index, data in datas_sujas:
+#    print("Linha:", index, "- Data:", data)
 
 # Estatísticas descritivas
 print("\nEstatísticas descritivas:")

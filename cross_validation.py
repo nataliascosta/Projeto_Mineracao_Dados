@@ -1,17 +1,12 @@
-from sklearn.model_selection import cross_val_score
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import SVC
-from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
+from sklearn.neighbors import KNeighborsClassifier, NearestCentroid
+from sklearn.linear_model import LogisticRegression, RidgeClassifier
 from xgboost import XGBClassifier
-from lightgbm import LGBMClassifier
-from catboost import CatBoostClassifier
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
-from sklearn.naive_bayes import GaussianNB
-from sklearn.neural_network import MLPClassifier
+from sklearn.naive_bayes import GaussianNB, MultinomialNB
+
 
 # Ler o arquivo CSV
 dados = pd.read_csv('Casos_e_obitos_ESP.csv', sep=';')
@@ -41,11 +36,14 @@ X_normalizado = scaler.fit_transform(X)
 
 
 # Lista dos classificadores
-classifiers = [
-    GaussianNB(),  # Presta
-    KNeighborsClassifier(),  # Presta
-    LogisticRegression(),  # Presta
-    XGBClassifier()  # Presta
+classifiers = [    
+    GaussianNB(),
+    KNeighborsClassifier(),
+    LogisticRegression(),
+    XGBClassifier(),
+    MultinomialNB(),
+    RidgeClassifier(),
+    NearestCentroid()
 ]
 
 # Dicionário para armazenar as métricas de cada classificador
